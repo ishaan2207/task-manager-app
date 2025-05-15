@@ -22,7 +22,7 @@ function TaskList({ tasks, setTasks }) {
                 <div className="task" key={key}>
                     <div className="task-text">{task.task}</div>
                     <input className="task-completed-check" type="checkbox" onChange={() => markTaskAsCompleted(key)}></input>
-                    <div><DeleteIcon /></div>
+                    <div onClick={() => deleteTask(key)}><DeleteIcon /></div>
                 </div>
             ))}
         </div>

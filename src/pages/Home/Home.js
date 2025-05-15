@@ -12,18 +12,21 @@ function Home() {
     const [tasks, setTasks] = useState([
         {
             task: 'Clean room',
-            status: 'pending'
+            completed: false
         },
         {
             task: 'Walk dog',
-            status: 'done'
+            completed: true
         }
     ]);
+
+    const [showAddTask, setShowAddTask] = useState('none');
 
     return (
         <div className="home-container">
             <TaskList tasks={tasks} setTasks={setTasks} />
-            <AddTask setTasks={setTasks} />
+            <AddTask setTasks={setTasks} showAddTask={showAddTask} />
+            <button onClick={() => setShowAddTask('block')}>Add Task</button>
         </div>
     )
 };
