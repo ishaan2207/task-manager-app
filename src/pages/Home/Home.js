@@ -1,5 +1,5 @@
 // deps
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 // styles
 import './Home.css';
@@ -11,25 +11,13 @@ import TasksFilter from "../../components/TasksFilter/TasksFilter";
 
 function Home() {
 
-    const localTasks = JSON.parse(localStorage.getItem('tasks'));
-    const [tasks, setTasks] = useState(localTasks);
-
     const [filter, setFilter] = useState('all');
-
-    useEffect(() => {
-        localStorage.setItem('tasks', JSON.stringify(tasks));
-    }, [tasks])
-
-    const handleToggleStatus = (taskToMark) => {
-        setTasks(prevTasks =>
-            prevTasks.map((task, key) => key === taskToMark ? { ...task, status: task.status === 'pending' ? 'completed' : 'pending' } : task))
-    }
 
     return (
         <div className="home-container">
             <p className="home-header">Task Manager</p>
-            <AddTask setTasks={setTasks} />
-            <TaskList tasks={tasks} setTasks={setTasks} filter={filter} handleToggleStatus={handleToggleStatus} />
+            <AddTask />
+            <TaskList filter={filter} />
             <TasksFilter filter={filter} setFilter={setFilter} />
         </div>
     )

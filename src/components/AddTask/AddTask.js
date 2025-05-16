@@ -1,17 +1,18 @@
 // deps
 import React, { useState } from "react";
+import { useTask } from "../../Context/TaskContext";
 
 // styles
 import './AddTask.css';
 
-function AddTask({ setTasks }) {
+function AddTask() {
+    const { addNewTask } = useTask();
+
     const [newTask, setNewTask] = useState({})
 
-    const addNewTask = (task) => {
-        if (task.task !== '') {
-            setTasks(prev => [...prev, task]);
-            setNewTask({ task: '', status: 'pending' });
-        }
+    const handleAddTask = (task) => {
+        addNewTask(task);
+        setNewTask({ task: '', status: 'pending' });
     }
 
     return (
@@ -19,7 +20,7 @@ function AddTask({ setTasks }) {
             <input type="text" placeholder="Add a new task" value={newTask.task} className="add-task-text"
                 onChange={(event) => setNewTask({ task: event.target.value, status: 'pending' })}>
             </input>
-            <button onClick={() => addNewTask(newTask)} className="add-task-button">Add</button>
+            <button onClick={() => handleAddTask(newTask)} className="add-task-button">Add</button>
         </div>
     )
 };

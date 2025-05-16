@@ -1,18 +1,17 @@
 // deps
 import React from "react";
+import { useTask } from "../../Context/TaskContext";
 
 // styles
 import './TaskList.css';
 
-function TaskList({ tasks, setTasks, filter, handleToggleStatus }) {
+function TaskList({ filter }) {
+    const { tasks, handleToggleStatus, deleteTask } = useTask();
+
     const filteredTasks = tasks.filter(task => {
         if (filter === 'all') return true;
         return task.status === filter;
     })
-
-    const deleteTask = (taskToDelete) => {
-        setTasks(prevTasks => prevTasks.filter((_, index) => index !== taskToDelete));
-    }
 
     return (
         <div className="tasks-container">
