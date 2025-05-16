@@ -1,5 +1,5 @@
 // deps
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 // styles
 import './Home.css';
@@ -10,18 +10,15 @@ import AddTask from "../../components/AddTask/AddTask";
 import TasksFilter from "../../components/TasksFilter/TasksFilter";
 
 function Home() {
-    const [tasks, setTasks] = useState([
-        {
-            task: 'Clean room',
-            status: 'pending'
-        },
-        {
-            task: 'Walk dog',
-            status: 'completed'
-        }
-    ]);
+
+    const localTasks = JSON.parse(localStorage.getItem('tasks'));
+    const [tasks, setTasks] = useState(localTasks);
 
     const [filter, setFilter] = useState('all');
+
+    useEffect(() => {
+        localStorage.setItem('tasks', JSON.stringify(tasks));
+    }, [tasks])
 
     const handleToggleStatus = (taskToMark) => {
         setTasks(prevTasks =>
