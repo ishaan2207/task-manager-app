@@ -8,8 +8,10 @@ function AddTask({ setTasks }) {
     const [newTask, setNewTask] = useState({})
 
     const addNewTask = (task) => {
-        setTasks(prev => [...prev, task]);
-        setNewTask({ task: '', status: 'pending' });
+        if (task.task !== '') {
+            setTasks(prev => [...prev, task]);
+            setNewTask({ task: '', status: 'pending' });
+        }
     }
 
     return (

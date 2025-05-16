@@ -18,9 +18,8 @@ function TaskList({ tasks, setTasks, filter, handleToggleStatus }) {
         <div className="tasks-container">
             {filteredTasks.map((task, key) => (
                 <div className="task" key={key}>
-                    <div className="task-left">
+                    <div className="task-left" onClick={() => handleToggleStatus(key)}>
                         <input className="task-checkbox" type="checkbox"
-                            onChange={() => handleToggleStatus(key)}
                             checked={task.status === 'completed'}
                         />
                         <span className={task.status === 'completed' ? 'task-text completed' : 'task-text'}>{task.task}</span>
