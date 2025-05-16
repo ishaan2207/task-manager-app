@@ -7,22 +7,26 @@ import './TaskList.css';
 // icons
 import DeleteIcon from '@mui/icons-material/Delete';
 
-function TaskList({ tasks, setTasks }) {
-    const markTaskAsCompleted = (key) => {
+function TaskList({ tasks, setTasks, filter, handleToggleStatus }) {
+    const filteredTasks = tasks.filter(task => {
+        if (filter === 'all') return true;
+        return task.status === filter;
+    })
 
-    }
-
-    const deleteTask = (key) => {
-        setTasks(prevTasks => prevTasks.filter((_, index) => index !== key));
+    const deleteTask = (taskToDelete) => {
+        setTasks(prevTasks => prevTasks.filter((_, index) => index !== taskToDelete));
     }
 
     return (
         <div className="tasks-container">
-            {tasks.map((task, key) => (
+            {filteredTasks.map((task, key) => (
                 <div className="task" key={key}>
-                    <div className="task-text">{task.task}</div>
-                    <input className="task-completed-check" type="checkbox" onChange={() => markTaskAsCompleted(key)}></input>
-                    <div onClick={() => deleteTask(key)}><DeleteIcon /></div>
+                    <span className="task-text">{task.task}</span>
+                    <input className="task-completed-check" type="checkbox"
+                        onChange={() => handleToggleStatus(key)}
+                        checked={task.status === 'completed'}
+                    />
+                    <span onClick={() => deleteTask(key)}><DeleteIcon /></span>
                 </div>
             ))}
         </div>

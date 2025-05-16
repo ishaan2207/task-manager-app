@@ -4,7 +4,7 @@ import React, { useState } from "react";
 // styles
 import './AddTask.css';
 
-function AddTask({ setTasks, showAddTask }) {
+function AddTask({ setTasks }) {
     const [newTask, setNewTask] = useState({})
 
     const addNewTask = (task) => {
@@ -13,9 +13,9 @@ function AddTask({ setTasks, showAddTask }) {
     }
 
     return (
-        <div className="add-task-container" style={{ display: showAddTask }}>
+        <div className="add-task-container">
             <input type="text" placeholder="Add a new task" value={newTask.task}
-                onChange={(event) => setNewTask({ task: event.target.value, completed: false })}>
+                onChange={(event) => setNewTask({ task: event.target.value, status: 'pending' })}>
             </input>
             <button onClick={() => addNewTask(newTask)}>Add Task</button>
         </div>

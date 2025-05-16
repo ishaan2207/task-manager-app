@@ -7,26 +7,33 @@ import './Home.css';
 // components
 import TaskList from "../../components/TaskList/TaskList";
 import AddTask from "../../components/AddTask/AddTask";
+import TasksFilter from "../../components/TasksFilter/TasksFilter";
 
 function Home() {
     const [tasks, setTasks] = useState([
         {
             task: 'Clean room',
-            completed: false
+            status: 'pending'
         },
         {
             task: 'Walk dog',
-            completed: true
+            status: 'completed'
         }
     ]);
 
-    const [showAddTask, setShowAddTask] = useState('none');
+    const [filter, setFilter] = useState('all');
+
+    const handleToggleStatus = (taskToMark) => {
+        setTasks(prevTasks =>
+            prevTasks.map((task, key) => key === taskToMark ? { ...task, status: task.status === 'pending' ? 'completed' : 'pending' } : task))
+    }
 
     return (
         <div className="home-container">
-            <TaskList tasks={tasks} setTasks={setTasks} />
-            <AddTask setTasks={setTasks} showAddTask={showAddTask} />
-            <button onClick={() => setShowAddTask('block')}>Add Task</button>
+            <p>Task Manager</p>
+            <AddTask setTasks={setTasks} />
+            <TaskList tasks={tasks} setTasks={setTasks} filter={filter} handleToggleStatus={handleToggleStatus} />
+            <TasksFilter filter={filter} setFilter={setFilter} />
         </div>
     )
 };
