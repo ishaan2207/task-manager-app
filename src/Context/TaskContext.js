@@ -1,18 +1,12 @@
 // deps
-import React, { createContext, useContext, useEffect, useState } from "react";
+import React, { createContext, useContext } from "react";
 import useLocalStorage from "../Hooks/useLocalStorage";
 
 const TaskContext = createContext();
 
 const TaskProvider = ({ children }) => {
 
-    // const localTasks = JSON.parse(localStorage.getItem('tasks'));
-    // const [tasks, setTasks] = useState(localTasks);
-
-    // useEffect(() => {
-    //     localStorage.setItem('tasks', JSON.stringify(tasks));
-    // }, [tasks]);
-    const [tasks, setTasks] = useLocalStorage();
+    const { tasks, setTasks } = useLocalStorage();
 
     const handleToggleStatus = (taskToMark) => {
         setTasks(prevTasks =>

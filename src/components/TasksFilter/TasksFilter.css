@@ -6,10 +6,10 @@
 }
 
 .tasks-filter-container button {
-    background-color: white;
-    color: black;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
     padding: 8px 18px;
-    border: 1px solid #ccc;
+    border: 1px solid var(--border);
     border-radius: 8px;
     font-size: 16px;
     cursor: pointer;
@@ -17,11 +17,15 @@
 }
 
 .tasks-filter-container button:hover {
-    background-color: #f2f2f2;
+    background-color: var(--tertiary-color);
 }
 
 .tasks-filter-container .active {
-    background-color: black;
-    color: white;
-    border-color: black;
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    border-color: var(--secondary-color);
+}
+
+.tasks-filter-container .active:hover {
+    background-color: var(--secondary-color);
 }

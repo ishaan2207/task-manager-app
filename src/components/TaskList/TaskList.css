@@ -20,8 +20,8 @@
 .task-checkbox {
     width: 20px;
     height: 20px;
-    border: 2px solid #555;
-    border-radius: 8px;
+    border: 2px solid var(--completed-task-box);
+    border-radius: 7px;
     appearance: none;
     cursor: pointer;
     position: relative;
@@ -35,24 +35,25 @@
     transform: translate(-50%, -50%);
     font-size: 14px;
     font-weight: bold;
-    color: #333;
+    color: var(--completed-task-box);
 }
 
 .task-text {
     font-size: 18px;
-    color: black;
+    color: var(--secondary-color);
     transition: all 0.3s ease;
+    cursor: pointer;
 }
 
 .task-text.completed {
     text-decoration: line-through;
-    color: #888;
+    color: var(--completed-task-text);
 }
 
 .task-delete {
     background: none;
     border: none;
-    color: black;
+    color: var(--secondary-color);
     cursor: pointer;
     font-size: 18px;
     padding: 10px;
@@ -60,5 +61,5 @@
 }
 
 .task-delete:hover {
-    background-color: #eee;
+    background-color: var(--task-delete);
 }

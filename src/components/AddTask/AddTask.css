@@ -1,6 +1,6 @@
 .add-task-container {
     display: flex;
-    border: 1px solid #ccc;
+    border: 1px solid var(--border);
     border-radius: 8px;
     overflow: hidden;
     width: 90%;
@@ -15,17 +15,17 @@
 }
 
 .add-task-button {
-    background-color: white;
-    color: black;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
     border: none;
     padding: 0 16px;
     font-size: 16px;
     font-weight: 600;
     cursor: pointer;
-    border-left: 1px solid #ccc;
+    border-left: 1px solid var(--border);
     transition: background-color 0.2s ease;
 }
 
 .add-task-button:hover {
-    background-color: #f0f0f0;
+    background-color: var(--background-color);
 }

@@ -4,16 +4,23 @@
     align-items: center;
     gap: 20px;
     width: 350px;
-    margin: 40% 5%;
-    padding: 0 10px 30px 10px;
-    border: 1px solid #ccc;
+    padding: 30px 10px;
+    border: 1px solid var(--border);
     border-radius: 12px;
-    background-color: white;
+    background-color: var(--primary-color);
 }
 
 .home-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     font-size: 24px;
     font-weight: 600;
     width: 90%;
     margin-bottom: 0;
+    color: var(--secondary-color);
+}
+
+.toggle-theme-button {
+    cursor: pointer;
 }
