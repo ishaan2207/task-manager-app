@@ -9,23 +9,18 @@ import TaskList from "../../components/TaskList/TaskList";
 import AddTask from "../../components/AddTask/AddTask";
 import TasksFilter from "../../components/TasksFilter/TasksFilter";
 
-// context
-import { useTheme } from "../../Context/ThemeContext";
-
 // icons
 import LightModeIcon from '@mui/icons-material/LightMode';
 
-function Home() {
+function Home({ setIsDark }) {
 
     const [filter, setFilter] = useState('all');
-
-    const { toggleTheme } = useTheme();
 
     return (
         <div className="home-container">
             <div className="home-header">
                 <p className="header-text">Task Manager</p>
-                <span className="toggle-theme-button" onClick={toggleTheme}>
+                <span className="toggle-theme-button" onClick={() => setIsDark(prev => !prev)}>
                     <LightModeIcon />
                 </span>
             </div>

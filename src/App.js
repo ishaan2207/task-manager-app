@@ -3,29 +3,21 @@ import './App.css';
 
 // context
 import { TaskProvider } from './Context/TaskContext';
-import { ThemeProvider, useTheme } from './Context/ThemeContext';
+import useTheme from './Hooks/useTheme';
 
 // pages
 import Home from './pages/Home/Home';
 
-function AppContent() {
-  const { isDark } = useTheme();
+function App() {
+  const { isDark, setIsDark } = useTheme();
 
   return (
     <div className="App" data-theme={isDark ? 'dark' : 'light'}>
       <TaskProvider>
-        <Home />
+        <Home setIsDark={setIsDark} />
       </TaskProvider>
     </div>
   );
-}
-
-function App() {
-  return (
-    <ThemeProvider>
-      <AppContent />
-    </ThemeProvider>
-  )
 }
 
 export default App;
