@@ -21,7 +21,13 @@ function Home({ setIsDark }) {
             <div className="home-header">
                 <p className="header-text">Task Manager</p>
                 <span className="toggle-theme-button" onClick={() => setIsDark(prev => !prev)}>
-                    <LightModeIcon />
+                    <LightModeIcon sx={{
+                        fontSize: {
+                            xs: 24,
+                            sm: 32,
+                            lg: 38,
+                        },
+                    }} />
                 </span>
             </div>
             <AddTask />

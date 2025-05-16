@@ -20,6 +20,7 @@
 .task-checkbox {
     width: 20px;
     height: 20px;
+    margin-bottom: 2px;
     border: 2px solid var(--completed-task-box);
     border-radius: 7px;
     appearance: none;
@@ -62,4 +63,34 @@
 
 .task-delete:hover {
     background-color: var(--task-delete);
+}
+
+@media only screen and (min-width: 600px) {
+    .tasks-container {
+        margin-top: -10px;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    .tasks-container {
+        margin-top: -15px;
+    }
+
+    .task-left {
+        gap: 14px;
+    }
+
+    .task-checkbox {
+        width: 22px;
+        height: 22px;
+    }
+
+    .task-text {
+        font-size: 20px;
+    }
+
+    .task-delete {
+        font-size: 20px;
+        padding: 14px;
+    }
 }

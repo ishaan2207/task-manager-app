@@ -29,3 +29,17 @@
 .tasks-filter-container .active:hover {
     background-color: var(--secondary-color);
 }
+
+@media only screen and (min-width: 600px) {
+    .tasks-filter-container button {
+        padding: 10px 24px;
+        font-size: 18px;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    .tasks-filter-container button {
+        padding: 12px 30px;
+        font-size: 20px;
+    }
+}
