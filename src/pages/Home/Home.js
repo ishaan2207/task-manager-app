@@ -27,7 +27,7 @@ function Home() {
 
     return (
         <div className="home-container">
-            <p>Task Manager</p>
+            <p className="home-header">Task Manager</p>
             <AddTask setTasks={setTasks} />
             <TaskList tasks={tasks} setTasks={setTasks} filter={filter} handleToggleStatus={handleToggleStatus} />
             <TasksFilter filter={filter} setFilter={setFilter} />

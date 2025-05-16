@@ -1,0 +1,27 @@
+.tasks-filter-container {
+    width: 90%;
+    display: flex;
+    gap: 6px;
+    justify-content: space-between;
+}
+
+.tasks-filter-container button {
+    background-color: white;
+    color: black;
+    padding: 8px 18px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.tasks-filter-container button:hover {
+    background-color: #f2f2f2;
+}
+
+.tasks-filter-container .active {
+    background-color: black;
+    color: white;
+    border-color: black;
+}

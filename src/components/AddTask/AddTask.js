@@ -14,10 +14,10 @@ function AddTask({ setTasks }) {
 
     return (
         <div className="add-task-container">
-            <input type="text" placeholder="Add a new task" value={newTask.task}
+            <input type="text" placeholder="Add a new task" value={newTask.task} className="add-task-text"
                 onChange={(event) => setNewTask({ task: event.target.value, status: 'pending' })}>
             </input>
-            <button onClick={() => addNewTask(newTask)}>Add Task</button>
+            <button onClick={() => addNewTask(newTask)} className="add-task-button">Add</button>
         </div>
     )
 };
