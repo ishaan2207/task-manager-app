@@ -8,7 +8,7 @@ import './TaskList.css';
 function TaskList({ filter }) {
     const { tasks, handleToggleStatus, deleteTask } = useTask();
 
-    const filteredTasks = tasks.filter(task => {
+    const filteredTasks = (tasks || []).filter(task => {
         if (filter === 'all') return true;
         return task.status === filter;
     })

@@ -1,3 +1,6 @@
+// deps
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
 // styles
 import './App.css';
 
@@ -12,11 +15,15 @@ function App() {
   const { isDark, setIsDark } = useTheme();
 
   return (
-    <div className="App" data-theme={isDark ? 'dark' : 'light'}>
-      <TaskProvider>
-        <Home setIsDark={setIsDark} />
-      </TaskProvider>
-    </div>
+    <BrowserRouter>
+      <div className="App" data-theme={isDark ? 'dark' : 'light'}>
+        <TaskProvider>
+          <Routes>
+            <Route path='/' element={<Home setIsDark={setIsDark} />} />
+          </Routes>
+        </TaskProvider>
+      </div>
+    </BrowserRouter>
   );
 }
 
